@@ -147,7 +147,7 @@ const asidePaddingTop = coverImageURL ? '200px' : '60px'
     justify-content: center;
     min-height: 100vh;
   }
-  @media (max-width: 960px) {
+  @media (max-width: 1280px) {
     .container {
       display: block;
     }
@@ -159,23 +159,33 @@ const asidePaddingTop = coverImageURL ? '200px' : '60px'
     max-width: 1280px;  /* 追加: 幅を制限します */
     margin: 0 auto;  /* 追加: マージンを自動に設定し、要素を中央揃えします */
   }
-  @media (max-width: 960px) {
+  @media (max-width: 1280px) {
     main {
       order: 1;
     }
   }
 
   aside {
+    position: fixed;
+    left: -250px; /* Start off screen */
     order: 1;
+    height: 100vh;
     width: 300px;
     padding: var(--asidePaddingTop) 20px 20px;
     background-color: #f4f4f4;
+    transition: left 0.5s ease; /* Animate the left property */
   }
-  @media (max-width: 960px) {
+
+  aside:hover {
+    left: 0; /* Move onto screen when hovered */
+  }
+  @media (max-width: 1280px) {
     aside {
+      position: static; /* Reset to normal on smaller screens */
       order: 2;
       width: 100%;
       padding: 40px 20px 20px;
+      left: 0; /* Always on screen for smaller devices */
     }
   }
 
@@ -192,7 +202,7 @@ const asidePaddingTop = coverImageURL ? '200px' : '60px'
   div.content {
     padding: 20px 40px;
   }
-  @media (max-width: 960px) {
+  @media (max-width: 1280px) {
     div.content {
       padding: 0 18px;
     }
@@ -242,7 +252,7 @@ const asidePaddingTop = coverImageURL ? '200px' : '60px'
     text-align: center;
     font-size: 0.75rem;
   }
-  @media (max-width: 960px) {
+  @media (max-width: 1280px) {
     main footer {
       margin: 0 auto 30px;
     }
