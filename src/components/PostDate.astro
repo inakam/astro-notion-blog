@@ -4,12 +4,13 @@ import { getDateStr } from '../lib/blog-helpers.ts'
 
 export interface Props {
   post: Post
+  alignment: 'left' | 'right'
 }
 
-const { post } = Astro.props
+const { post, alignment = 'left' } = Astro.props
 ---
 
-<div class="post-date">
+<div class={`post-date align-${alignment}`}>
   {post.Date ? getDateStr(post.Date) : ''}
 </div>
 
@@ -17,5 +18,11 @@ const { post } = Astro.props
   .post-date {
     padding: 0 0 0.3rem;
     font-size: 0.9rem;
+  }
+  .align-left {
+    text-align: left;
+  }
+  .align-right {
+    text-align: right;
   }
 </style>
